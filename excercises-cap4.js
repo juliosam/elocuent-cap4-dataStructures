@@ -1,6 +1,7 @@
 let ej1 = "Ejercicio 1";
 let ej2 = "Ejercicio 2";
 let ej3 = "Ejercicio 3";
+let ej4 = "Ejercicio 4";
 let brinco = " \n "
 
 console.log(ej1)
@@ -122,3 +123,59 @@ let prepend = function(v,r){
 
 console.log(prepend(10,(prepend(20,null))));
 
+
+const nth = function(obj,p){
+
+let count=0;
+
+    for (let node = obj; node; node = node.rest) {
+     count ++;
+     if(count == p){ return node.value}
+
+}};
+
+console.log(nth(arrayToList([10, 20, 30]), 2));
+
+
+console.log(brinco)
+console.log(ej4)
+
+
+let deepEqual = function(a,b){
+
+    if ((typeof a) != "object"||typeof b !== "object"){
+        if (a === b)
+        { return true  }
+    }
+
+    else if ((typeof a == "object" && a !== null)&&(typeof b == "object" && b !== null)){
+        let first = Object.keys(a);
+        let second = Object.keys(b);     
+        
+        console.log(first)
+        console.log(second)
+    }
+
+    else{ 
+        if(a === null && b === null){
+            return true
+        }
+
+        else { return false}
+    }
+}
+/*
+
+    
+
+
+    if(a === null || b === null){
+        return "fack ya! no give me no null shiet!" }
+    else if (first === second){
+        return true  }
+    else {return false}*/
+
+let obj = {here: {is: "an"}, object: 2};
+console.log(deepEqual(obj, null));
+console.log(deepEqual(obj, {here: 1, object: 2}));
+console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
