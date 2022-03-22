@@ -104,9 +104,21 @@ console.log(arrayToList([60,70,80,90]));
 
 const listToArray = function(lest){
     let arrian = [];
-    if (lest)
-    arrian.push(lest.value)
-    console.log(arrian)
+    for (let node = lest; node; node = node.rest) {
+      arrian.push(node.value)  
+    }
+    return arrian
 }
 
-console.log(listToArray(arrayToList([60,70,80,90])))
+console.log(listToArray(arrayToList([60,70,80,90]))) 
+
+
+
+let prepend = function(v,r){
+    let lista
+    if(v){lista={value:v , rest: r}}
+    return lista
+}
+
+console.log(prepend(10,(prepend(20,null))));
+
