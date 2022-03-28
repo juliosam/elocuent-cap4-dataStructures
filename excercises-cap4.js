@@ -65,6 +65,7 @@ console.log(reverseArray(["A","B","C","D"]))
 
 
 
+
 const reverseArrayInPlace = function(letArr){
         let newarr= []
     
@@ -129,53 +130,62 @@ const nth = function(obj,p){
 let count=0;
 
     for (let node = obj; node; node = node.rest) {
-     count ++;
+     
      if(count == p){ return node.value}
+     count ++;
 
 }};
 
-console.log(nth(arrayToList([10, 20, 30]), 2));
+console.log(nth(arrayToList([10, 20, 30]), 0));
 
 
 console.log(brinco)
 console.log(ej4)
 
 
+
 let deepEqual = function(a,b){
 
-    if ((typeof a) != "object"||typeof b !== "object"){
-        if (a === b)
-        { return true  }
+    if (typeof a !== "object"||typeof b !== "object"){
+        if (a == b){ return true  }
+        else {return false}
     }
 
-    else if ((typeof a == "object" && a !== null)&&(typeof b == "object" && b !== null)){
-        let first = Object.keys(a);
-        let second = Object.keys(b);     
+    else if ((typeof a == "object" && a !== null)&&
+    (typeof b == "object" && b !== null)){
+  
+        let aKeys = Object.keys(a);
+        let bKeys = Object.keys(b);   
+        let aValues = Object.values(a);
+        let bValues = Object.values(b);
+       
+        if (aKeys.length !== bKeys.length) { return false}
         
-        console.log(first)
-        console.log(second)
-    }
+        else {  
+            for(let count=0; count < aKeys.length-1;count++){
+               if (aKeys[count] !== bKeys[count]){
+                   return false}
+// sabes que no esta bien lo de abajo
+               else if (typeof aValues[count] != typeof bValues[count]){
+                   return false}
+               
+               else {
+                   return true}
+               }
+            };
+      }
 
-    else{ 
-        if(a === null && b === null){
-            return true
-        }
-
-        else { return false}
-    }
+      else { 
+          if(a === null && b === null){
+              return true
+          }
+  
+          else { return false}
+         }
 }
-/*
 
-    
-
-
-    if(a === null || b === null){
-        return "fack ya! no give me no null shiet!" }
-    else if (first === second){
-        return true  }
-    else {return false}*/
 
 let obj = {here: {is: "an"}, object: 2};
-console.log(deepEqual(obj, null));
+console.log(deepEqual(null, null));
 console.log(deepEqual(obj, {here: 1, object: 2}));
 console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
