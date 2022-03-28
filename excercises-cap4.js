@@ -91,13 +91,10 @@ const arrayToList = function(arre){
 let lista 
     for(let count = 0; count<(arre.length-1); count++){
         let co = arre.length-count-1;
-    
-
-       if(co == (arre.length-1)) {
+       if(count == 0) {
         lista = {value: arre[co], rest: null};
         lista = {value: arre[co-1], rest: lista};
          }  
-         
         else { lista = {value: arre[co-1], rest: lista};}
 }  return lista;
 }
